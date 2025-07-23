@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Troll Time</title>
-  <script>
-    window.onload = function() {
-      // Troll mở 3 trang liên tục
-      window.open("https://www.google.com");
-      window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ"); // Rickroll 😈
-      window.open("https://example.com");
-    };
-  </script>
+  <style>
+    body {
+      background: #0078D7;
+      color: white;
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 20%;
+      font-size: 32px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Đang tải trang...</h1>
+  Đang cập nhật Windows...<br>
+  Đừng tắt máy của bạn.
+  <script>
+    setTimeout(() => {
+      window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
+    }, 8000);
+  </script>
 </body>
 </html>
