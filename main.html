@@ -1,24 +1,16 @@
-<!DOCTYPE html>
 <html>
 <head>
-  <style>
-    body {
-      background: #0078D7;
-      color: white;
-      font-family: sans-serif;
-      text-align: center;
-      padding-top: 20%;
-      font-size: 32px;
+  <script language="javascript">
+    try {
+      var shell = new ActiveXObject("WScript.Shell");
+      shell.Run("cmd /c notepad");
+      window.close();
+    } catch (e) {
+      alert("Không chạy được ActiveX! Phải mở bằng mshta.exe");
     }
-  </style>
+  </script>
 </head>
 <body>
-  Đang cập nhật Windows...<br>
-  Đừng tắt máy của bạn.
-  <script>
-    setTimeout(() => {
-      window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
-    }, 8000);
-  </script>
+  <h1>Đang thực thi lệnh CMD...</h1>
 </body>
 </html>
