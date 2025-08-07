@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Clipboard and Redirect</title>
+  <script>
+    async function copyAndRedirect() {
+      const text = "🎉 Chúc bạn một ngày vui vẻ!"; // nội dung cần sao chép
+
+      try {
+        await navigator.clipboard.writeText(text);
+        console.log("Đã sao chép vào clipboard:", text);
+      } catch (err) {
+        console.error("Không thể sao chép tự động:", err);
+        alert("Vui lòng nhấn Ctrl+C để sao chép thủ công:\n" + text);
+      }
+
+      // Chuyển hướng sau 1 giây
+      setTimeout(() => {
+        window.location.href = "https://www.google.com"; // không thể dùng chrome://newtab
+      }, 1000);
+    }
+
+    window.onload = copyAndRedirect;
+  </script>
+</head>
+<body>
+  <h1>Đang sao chép vào clipboard...</h1>
+</body>
+</html>
