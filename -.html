@@ -1,30 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Clipboard and Redirect</title>
+<body onclick="copyOnce()">
+  <h1>Nhấn vào bất kỳ đâu để sao chép và chuyển trang</h1>
   <script>
-    async function copyAndRedirect() {
-      const text = "🎉 Chúc bạn một ngày vui vẻ!"; // nội dung cần sao chép
+    let copied = false;
+    function copyOnce() {
+      if (copied) return;
+      copied = true;
 
-      try {
-        await navigator.clipboard.writeText(text);
-        console.log("Đã sao chép vào clipboard:", text);
-      } catch (err) {
-        console.error("Không thể sao chép tự động:", err);
-        alert("Vui lòng nhấn Ctrl+C để sao chép thủ công:\n" + text);
-      }
-
-      // Chuyển hướng sau 1 giây
-      setTimeout(() => {
-        window.location.href = "https://www.google.com"; // không thể dùng chrome://newtab
-      }, 1000);
+      const text = "🎉 Hello!";
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Đã sao chép: " + text);
+        window.location.href = "https://www.google.com";
+      });
     }
-
-    window.onload = copyAndRedirect;
   </script>
-</head>
-<body>
-  <h1>Đang sao chép vào clipboard...</h1>
 </body>
-</html>
