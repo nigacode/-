@@ -1,29 +1,16 @@
-<body>
-  <textarea id="textToCopy" style="position:absolute;left:-9999px;">🎉 Hello from GitHub Pages</textarea>
-  <h1>Đang sao chép...</h1>
-
+<body onclick="copyOnce()">
+  <h1>Nhấn vào bất kỳ đâu để sao chép và chuyển trang</h1>
   <script>
-    function fallbackCopy() {
-      const text = "🎉 Hello from GitHub Pages";
-      alert("Trình duyệt không cho sao chép tự động.\nVui lòng nhấn Ctrl+C:\n\n" + text);
-    }
+    let copied = false;
+    function copyOnce() {
+      if (copied) return;
+      copied = true;
 
-    window.onload = () => {
-      const textarea = document.getElementById("textToCopy");
-      textarea.select();
-      textarea.setSelectionRange(0, 99999);
-      try {
-        const success = document.execCommand("copy");
-        console.log("Kết quả sao chép:", success);
-        if (!success) fallbackCopy();
-      } catch (e) {
-        fallbackCopy();
-      }
-
-      // Redirect sau 2s
-      setTimeout(() => {
+      const text = "🎉 Hello!";
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Đã sao chép: " + text);
         window.location.href = "https://www.google.com";
-      }, 2000);
-    };
+      });
+    }
   </script>
 </body>
