@@ -1,16 +1,28 @@
-<body onclick="copyOnce()">
-  <h1>Nhấn vào bất kỳ đâu để sao chép và chuyển trang</h1>
-  <script>
-    let copied = false;
-    function copyOnce() {
-      if (copied) return;
-      copied = true;
-
-      const text = "🎉 Hello!";
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Đã sao chép: " + text);
-        window.location.href = "https://www.google.com";
-      });
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title></title>
+  <style>
+    html, body {
+      margin: 0; padding: 0; height: 100%;
+      background: white;
+      cursor: pointer;
     }
-  </script>
+  </style>
+</head>
+<body onclick="copyAndRedirect()" >
+
+<script>
+  function copyAndRedirect() {
+    const text = "Nội dung cần copy";
+    navigator.clipboard.writeText(text).then(() => {
+      window.location.href = "https://www.google.com";
+    });
+    // Nếu muốn chắc chắn redirect luôn không chờ promise:
+    // window.location.href = "https://www.google.com";
+  }
+</script>
+
 </body>
+</html>
